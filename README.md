@@ -2,7 +2,8 @@
 
 ## Steps to run the project
 
-  First get a clone of the repo
+  First get a clone of the repo by using commnad
+  git clone https://github.com/ejazahmad122/weatherman_lab.git
 
 
 ## Task_01

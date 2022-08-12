@@ -1,5 +1,5 @@
-# Month names dictionary
-month = {
+# Months names dictionary
+MONTHS = {
     '1':'Jan',
     '2':'Feb', 
     '3':'Mar', 
@@ -14,33 +14,34 @@ month = {
     '12':'Dec'
 }
 
-class ShowReult:
+class ShowResult:
     """Results class is used to save result and show them as per required format"""
-    def __init__(self,  highest = None, lowest = None, humidity = None):
+    def __init__(self,  highest = None, lowest = None, humidity = None, chart = []):
         self.highest = highest         
         self.lowest = lowest
         self.humidity = humidity
-
-    def chart_set(self,  chart):
-        """Set the chart list
-
-        Args:
-            chart ([list]): [list that contain tuple of month# max and min temprature resp.]
-        """
         self.chart = chart
+
+    # def chart_set(self,  chart):
+    #     """Set the chart list
+
+    #     Args:
+    #         chart ([list]): [list that contain tuple of month number max and min temprature respectively]
+    #     """
+    #     self.chart = chart
     
-    def max_min_show(self):
-        """Show the highest, lowest temprature resp. and most humidity in required format"""
+    def show_min_max(self):
+        """Show the highest, lowest temprature respectively and most humidity"""
         highest_day = self.highest[1].split('-')
         lowest_day = self.lowest[1].split('-')
         humidity_day = self.humidity[1].split('-')
         print('\nHighest temperature and day, lowest temperature and day, most humid day and humidity.\n')
-        print('Highest: {}C on {} {}'.format(self.highest[0], month.get(highest_day[1]), highest_day[2]))
-        print('Lowest: {}C on {} {}'.format(self.lowest[0], month.get(lowest_day[1]), lowest_day[2]))
-        print('Humidity: {}C on {} {}\n'.format(self.humidity[0], month.get(humidity_day[1]), humidity_day[2]))
+        print('Highest: {}C on {} {}'.format(self.highest[0], MONTHS.get(highest_day[1]), highest_day[2]))
+        print('Lowest: {}C on {} {}'.format(self.lowest[0], MONTHS.get(lowest_day[1]), lowest_day[2]))
+        print('Humidity: {}C on {} {}\n'.format(self.humidity[0], MONTHS.get(humidity_day[1]), humidity_day[2]))
 
-    def average_values_show(self):
-        """Show the highest and lowest average temprature resp. and most humidity in required format"""
+    def show_average_values(self):
+        """Show the highest and lowest average temprature respectively and most humidity"""
         print('\nFor given month average highest temperature, average lowest temperature, average mean humidity.\n')
         print('Highest Average: {}C'.format(round(self.highest, 2)))
         print('Lowest Average: {}C'.format(round(self.lowest, 2)))
@@ -58,7 +59,7 @@ class ShowReult:
         print('\n')
 
     def each_day_temprature_colored_chart(self, mon, year):
-        """Shop horizontal bar chart of tempratyre for each day in colored format """
+        """Shop horizontal bar chart of tempratyre for each day in colored form"""
         print('\nHorizontal bar charts for the highest and lowest temperature on each day for given month\n')
         print('{} {}\n'.format(mon, year))
         for el in self.chart:
